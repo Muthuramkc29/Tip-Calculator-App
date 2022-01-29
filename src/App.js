@@ -34,12 +34,23 @@ function App() {
   }, [reset]);
 
   const calculateTip = (prevState) => {
-    if (selectedTip != 0) {
-      setTipAmountPerson((bill * selectedTip) / numberOfPerson);
-      setTipAmountTotal(bill * selectedTip);
+    if (selectedTip !== 0) {
+      setTipAmountPerson(((bill * selectedTip) / numberOfPerson).toFixed(2));
+      setTipAmountTotal(
+        (bill / numberOfPerson + (bill * selectedTip) / numberOfPerson).toFixed(
+          2
+        )
+      );
     } else {
-      setTipAmountPerson((bill * customSelectedTip) / numberOfPerson);
-      setTipAmountTotal(bill * customSelectedTip);
+      setTipAmountPerson(
+        ((bill * customSelectedTip) / numberOfPerson).toFixed(2)
+      );
+      setTipAmountTotal(
+        (
+          bill / numberOfPerson +
+          (bill * customSelectedTip) / numberOfPerson
+        ).toFixed(2)
+      );
     }
     setSubmit((prevState) => !prevState);
     if (sumbit) {

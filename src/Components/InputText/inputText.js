@@ -15,6 +15,7 @@ function inputText(props) {
               //   value={this.state.value3}
               onChange={(e) => props.setBill(e.target.value)}
               // placeholder={props.bill}
+              required
             />
           </span>
         </div>
@@ -28,6 +29,7 @@ function inputText(props) {
               //   value={this.state.value3}
               onChange={(e) => props.setNumberOfPerson(e.target.value)}
               //   placeholder="Search"
+              required
             />
           </span>
         </div>

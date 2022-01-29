@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 // import "./button.scss";
 
-function button(props) {
+function Button(props) {
+  const [active, setActive] = useState(false);
+
+  const toggledButtonClass = active ? "btn-class-active" : "btn-class";
+
   return (
     <div>
       <ButtonStyle>
         <button
-          className="btn-class"
-          onClick={() => {
+          className={toggledButtonClass}
+          primary
+          onClick={(prevState) => {
             props.setSelectedTip(props.percentage / 100);
+            setActive((prevState) => !prevState);
           }}
         >
           {props.percentage}%
@@ -19,7 +25,7 @@ function button(props) {
   );
 }
 
-export default button;
+export default Button;
 
 const ButtonStyle = styled.div`
   @import "../../sass/styles.scss";
@@ -39,5 +45,16 @@ const ButtonStyle = styled.div`
       color: hsl(0, 0%, 36%);
       font-weight: 700;
     }
+  }
+
+  .btn-class-active {
+    background-color: hsl(172, 67%, 45%);
+    color: hsl(0, 0%, 36%);
+    padding-inline: 1.5rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    border-radius: 0.3rem;
+    border: none;
+    outline: none;
   }
 `;
