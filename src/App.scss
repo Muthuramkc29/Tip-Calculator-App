@@ -1,0 +1,63 @@
+@import "./sass/styles.scss";
+
+.containerFlex {
+  height: 100vh;
+
+  &__h3 {
+    letter-spacing: 0.6rem;
+    font-weight: 700;
+    color: $dark-grayish-cyans;
+  }
+
+  &__splitterDiv {
+    width: 100%;
+    max-width: 50rem;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .buttonDiv {
+    max-width: 16rem;
+  }
+
+  .bg-dark-div {
+    background-color: $very-dark-cyan;
+    border-radius: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .reset-button {
+    width: 80%;
+    background-color: $strong-cyan;
+    border-radius: 0.4rem;
+    border: none;
+    outline: none;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    font-weight: 700;
+    color: $very-dark-cyan;
+    margin-bottom: 1rem;
+
+    &:hover {
+      background-color: hsl(185, 55%, 75%);
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .containerFlex__splitterDiv {
+    display: flex;
+    flex-direction: row;
+  }
+  .bg-dark-div {
+    width: 90%;
+  }
+}
