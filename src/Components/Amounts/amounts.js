@@ -13,7 +13,7 @@ function amounts(props) {
             </div>
             <div>
               <AmountStyle>
-                <p className="amount">$0.00</p>
+                <p className="amount">${props.tipAmountPerson}</p>
               </AmountStyle>
             </div>
           </div>
@@ -27,7 +27,7 @@ function amounts(props) {
             </div>
             <div>
               <AmountStyle>
-                <p className="amount">$0.00</p>
+                <p className="amount">${props.tipAmountTotal}</p>
               </AmountStyle>
             </div>
           </div>

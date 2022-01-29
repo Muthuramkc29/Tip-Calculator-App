@@ -11,10 +11,10 @@ function inputText(props) {
           <span className="p-input-icon-left">
             <i className="pi pi-dollar" />
             <InputText
-            //   className="inputTextBox"
-            //   value={this.state.value3}
-            //   onChange={(e) => this.setState({ value3: e.target.value })}
-            //   placeholder="Search"
+              //   className="inputTextBox"
+              //   value={this.state.value3}
+              onChange={(e) => props.setBill(e.target.value)}
+              // placeholder={props.bill}
             />
           </span>
         </div>
@@ -24,10 +24,10 @@ function inputText(props) {
           <span className="p-input-icon-left">
             <i className="pi pi-user" />
             <InputText
-            //   className="inputTextBox"
-            //   value={this.state.value3}
-            //   onChange={(e) => this.setState({ value3: e.target.value })}
-            //   placeholder="Search"
+              //   className="inputTextBox"
+              //   value={this.state.value3}
+              onChange={(e) => props.setNumberOfPerson(e.target.value)}
+              //   placeholder="Search"
             />
           </span>
         </div>

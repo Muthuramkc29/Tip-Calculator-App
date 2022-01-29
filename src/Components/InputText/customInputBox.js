@@ -5,7 +5,12 @@ function customInputBox(props) {
   return (
     <div>
       <InputBox>
-        <input type="text" className="inputBox" placeholder="Custom" />
+        <input
+          type="text"
+          className="inputBox"
+          placeholder="Custom"
+          onChange={(e) => props.setCustomSelectedTip(e.target.value / 100)}
+        />
       </InputBox>
     </div>
   );

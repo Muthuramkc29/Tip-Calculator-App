@@ -6,7 +6,14 @@ function button(props) {
   return (
     <div>
       <ButtonStyle>
-        <button className="btn-class">{props.percentage}%</button>
+        <button
+          className="btn-class"
+          onClick={() => {
+            props.setSelectedTip(props.percentage / 100);
+          }}
+        >
+          {props.percentage}%
+        </button>
       </ButtonStyle>
     </div>
   );
