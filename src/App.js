@@ -10,7 +10,7 @@ import CustomInputBox from "./Components/InputText/customInputBox";
 import { useEffect, useState } from "react";
 
 function App() {
-  // const percents = [5, 10, 15, 25, 50];
+  // const percents = [10, 15, 20, 25, 50];
   const [bill, setBill] = useState(0);
   const [selectedTip, setSelectedTip] = useState(0);
   const [customSelectedTip, setCustomSelectedTip] = useState(0);
@@ -20,6 +20,10 @@ function App() {
   const [tipAmountTotal, setTipAmountTotal] = useState(0.0);
   const [sumbit, setSubmit] = useState(false);
   const [reset, setReset] = useState(false);
+  // const [buttonStates, setButtonStates] = useState({
+  //   activeObject: null,
+  //   objects: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }],
+  // });
   // console.log(bill);
   // console.log(selectedTip);
   // console.log(numberOfPerson);
@@ -30,7 +34,7 @@ function App() {
     // setBill(0);
     // setSelectedTip(0);
     // setNumberOfPerson(0);
-    setCustomSelectedTip(0);
+    // setCustomSelectedTip(0);
   }, [reset]);
 
   const calculateTip = (prevState) => {
@@ -56,12 +60,22 @@ function App() {
     if (sumbit) {
       setReset((prevState) => !prevState);
     }
-    // setTimeout(() => {
-    //   setReset((prevState) => !prevState);
-    //   setSubmit((prevState) => !prevState);
-    // }, 6000);
-    // setReset((prevState) => !prevState);
   };
+
+  // const toggleActiveButton = (index) => {
+  //   setButtonStates({
+  //     ...buttonStates,
+  //     activeObject: buttonStates.objects[index],
+  //   });
+  // };
+
+  // const toggleActiveClass = (index) => {
+  //   if (buttonStates.activeObject === buttonStates.objects[index]) {
+  //     return "btn-class active";
+  //   } else {
+  //     return "btn-class";
+  //   }
+  // };
 
   return (
     <div className="App">
@@ -75,10 +89,24 @@ function App() {
             <div>
               <p>Selected tip %</p>
               <div className="d-flex flex-wrap gap-2 buttonDiv">
-                {/* {percents.map((percent, index) => {
-                  index = percents.indexOf("percent");
-                  <Button key={index} percentage={percent} />;
-                })} */}
+                {/* {buttonStates.objects.map((elements, index) => (
+                  // index = percents.indexOf("percent");
+                  <div
+                    key={index}
+                    className={toggleActiveClass(index)}
+                    // selectedTip={selectedTip}
+                    // setSelectedTip={setSelectedTip}
+                    // percentage={percent}
+                    // index={index}
+                    // toggleActiveClass={toggleActiveClass}
+                    // toggleActiveButton={() => {
+                    //   toggleActiveButton(index);
+                    // }}
+                    onClick={() => toggleActiveButton(index)}
+                  >
+                    {/* {percents.map((percent) => (
+                      <p>{percent}</p>
+                    ))} */}
                 <Button
                   percentage={10}
                   selectedTip={selectedTip}

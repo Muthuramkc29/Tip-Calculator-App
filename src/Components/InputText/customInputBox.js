@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 function customInputBox(props) {
   return (
-    <div>
+    <div className="d-flex align-items-center">
       <InputBox>
         <input
           type="text"
@@ -12,6 +12,7 @@ function customInputBox(props) {
           onChange={(e) => props.setCustomSelectedTip(e.target.value / 100)}
         />
       </InputBox>
+      <span className="ms-1 percent">%</span>
     </div>
   );
 }
@@ -27,10 +28,16 @@ const InputBox = styled.div`
     font-weight: 700;
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
+    padding-right: 0.3rem
     border-radius: 0.3rem;
     border: hsl(172, 67%, 45%);
     outline: hsl(172, 67%, 45%);
     width: 70px;
     text-align: right;
+  }
+
+  .percent {
+    color: hsl(183, 100%, 15%);
+    font-weight: 700;
   }
 `;

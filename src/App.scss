@@ -61,3 +61,51 @@
     width: 90%;
   }
 }
+
+// CHECK
+.btn-class {
+  // height: 200px;
+  // width: 200px;
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  background-color: hsl(183, 100%, 15%);
+  color: white;
+  padding-inline: 1.5rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  border-radius: 0.3rem;
+  border: none;
+  outline: none;
+
+  &:hover {
+    background-color: hsl(172, 67%, 45%);
+    color: hsl(0, 0%, 36%);
+    font-weight: 700;
+  }
+}
+
+.inactive {
+  background-color: hsl(183, 100%, 15%);
+  color: white;
+}
+
+.active {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(0, 0%, 36%);
+  padding-inline: 1.5rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  border-radius: 0.3rem;
+  border: none;
+  outline: none;
+}
+
+.box {
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: blueviolet;
+}
