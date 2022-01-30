@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 // import "./button.scss";
 
@@ -36,7 +36,7 @@ function Button(props) {
     <div>
       <ButtonStyle>
         <button
-          key={props.key}
+          // key={props.key}
           className={props.className()}
           // className={toggledButtonClass}
           onClick={(prevState) => {

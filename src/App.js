@@ -24,7 +24,7 @@ function App() {
     activeObject: null,
     objects: [10, 15, 20, 25, 50],
   });
-  const [customBoxSelection, setCustomBoxSelection] = useState(false);
+  // const [customBoxSelection, setCustomBoxSelection] = useState(false);
   // const [toggleActiveClassEffect, setToggleActiveClassEffect] = useState(
   //   (index) => {
   //     if (buttonStates.activeObject === buttonStates.objects[index]) {
@@ -47,13 +47,6 @@ function App() {
     // setNumberOfPerson(0);
     // setCustomSelectedTip(0);
   }, [reset]);
-
-  useEffect(() => {
-    setButtonStates({
-      ...buttonStates,
-      activeObject: null,
-    });
-  }, [customBoxSelection]);
 
   const calculateTip = (prevState) => {
     if (selectedTip !== 0) {
@@ -103,9 +96,9 @@ function App() {
     }
   };
 
-  const settingCustomSelection = (prevState) => {
-    setCustomBoxSelection((prevState) => !prevState);
-  };
+  // const settingCustomSelection = (prevState) => {
+  //   setCustomBoxSelection((prevState) => !prevState);
+  // };
 
   // window.click(function () {
   //   settingCustomSelection();
@@ -171,7 +164,12 @@ function App() {
                   customSelectedTip={customSelectedTip}
                   setCustomSelectedTip={setCustomSelectedTip}
                   setSelectedTip={setSelectedTip}
-                  onClick={() => settingCustomSelection()}
+                  onClick={(index) =>
+                    setButtonStates({
+                      ...buttonStates,
+                      activeObject: buttonStates.objects[index],
+                    })
+                  }
                 />
               </div>
             </div>
