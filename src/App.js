@@ -106,12 +106,12 @@ function App() {
 
   return (
     <div className="App">
-      <div class="container d-flex flex-column justify-content-center align-items-center gap-5 containerFlex">
+      <div className="container d-flex flex-column justify-content-center align-items-center gap-5 containerFlex">
         <p className="containerFlex__h3">
           SPLI<br></br>TTER
         </p>
         <div className="containerFlex__splitterDiv p-4">
-          <div class="d-flex flex-column gap-4 pb-1 w-100">
+          <div className="d-flex flex-column gap-4 pb-1 w-100">
             <InputTextDiv type="bill" initialBill={bill} setBill={setBill} />
             <div>
               <p>Selected tip %</p>
