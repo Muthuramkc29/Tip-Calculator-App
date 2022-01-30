@@ -20,10 +20,21 @@ function App() {
   const [tipAmountTotal, setTipAmountTotal] = useState(0.0);
   const [sumbit, setSubmit] = useState(false);
   const [reset, setReset] = useState(false);
-  // const [buttonStates, setButtonStates] = useState({
-  //   activeObject: null,
-  //   objects: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }],
-  // });
+  const [buttonStates, setButtonStates] = useState({
+    activeObject: null,
+    objects: [10, 15, 20, 25, 50],
+  });
+  const [customBoxSelection, setCustomBoxSelection] = useState(false);
+  // const [toggleActiveClassEffect, setToggleActiveClassEffect] = useState(
+  //   (index) => {
+  //     if (buttonStates.activeObject === buttonStates.objects[index]) {
+  //       return "btn-class active";
+  //     } else {
+  //       return "btn-class inactive";
+  //     }
+  //   }
+  // );
+
   // console.log(bill);
   // console.log(selectedTip);
   // console.log(numberOfPerson);
@@ -36,6 +47,13 @@ function App() {
     // setNumberOfPerson(0);
     // setCustomSelectedTip(0);
   }, [reset]);
+
+  useEffect(() => {
+    setButtonStates({
+      ...buttonStates,
+      activeObject: null,
+    });
+  }, [customBoxSelection]);
 
   const calculateTip = (prevState) => {
     if (selectedTip !== 0) {
@@ -61,21 +79,37 @@ function App() {
       setReset((prevState) => !prevState);
     }
   };
-
-  // const toggleActiveButton = (index) => {
-  //   setButtonStates({
-  //     ...buttonStates,
-  //     activeObject: buttonStates.objects[index],
-  //   });
-  // };
+  // console.log(buttonStates, buttonStates.activeObject);
+  const toggleActiveButton = (index) => {
+    setButtonStates({
+      ...buttonStates,
+      activeObject: buttonStates.objects[index],
+    });
+  };
 
   // const toggleActiveClass = (index) => {
   //   if (buttonStates.activeObject === buttonStates.objects[index]) {
-  //     return "btn-class active";
+  //     return true;
   //   } else {
-  //     return "btn-class";
+  //     return false;
   //   }
   // };
+
+  const toggleActiveClass = (index) => {
+    if (buttonStates.activeObject === buttonStates.objects[index]) {
+      return "btn-class active";
+    } else {
+      return "btn-class inactive";
+    }
+  };
+
+  const settingCustomSelection = (prevState) => {
+    setCustomBoxSelection((prevState) => !prevState);
+  };
+
+  // window.click(function () {
+  //   settingCustomSelection();
+  // });
 
   return (
     <div className="App">
@@ -89,25 +123,26 @@ function App() {
             <div>
               <p>Selected tip %</p>
               <div className="d-flex flex-wrap gap-2 buttonDiv">
-                {/* {buttonStates.objects.map((elements, index) => (
+                {buttonStates.objects.map((element, index) => (
                   // index = percents.indexOf("percent");
-                  <div
+                  <Button
                     key={index}
-                    className={toggleActiveClass(index)}
-                    // selectedTip={selectedTip}
-                    // setSelectedTip={setSelectedTip}
-                    // percentage={percent}
-                    // index={index}
+                    // className={() => toggleActiveClass(index)}
+                    className={() => toggleActiveClass(index)}
+                    // className={toggleActiveClass}
+                    selectedTip={selectedTip}
+                    setSelectedTip={setSelectedTip}
+                    percentage={element}
                     // toggleActiveClass={toggleActiveClass}
                     // toggleActiveButton={() => {
                     //   toggleActiveButton(index);
                     // }}
                     onClick={() => toggleActiveButton(index)}
-                  >
-                    {/* {percents.map((percent) => (
-                      <p>{percent}</p>
-                    ))} */}
-                <Button
+                  />
+                ))}
+                {/* //
+                  </div> */}
+                {/* <Button
                   percentage={10}
                   selectedTip={selectedTip}
                   setSelectedTip={setSelectedTip}
@@ -131,10 +166,12 @@ function App() {
                   percentage={50}
                   selectedTip={selectedTip}
                   setSelectedTip={setSelectedTip}
-                />
+                /> */}
                 <CustomInputBox
                   customSelectedTip={customSelectedTip}
                   setCustomSelectedTip={setCustomSelectedTip}
+                  setSelectedTip={setSelectedTip}
+                  onClick={() => settingCustomSelection()}
                 />
               </div>
             </div>

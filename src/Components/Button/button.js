@@ -3,9 +3,9 @@ import styled from "styled-components";
 // import "./button.scss";
 
 function Button(props) {
-  const [active, setActive] = useState(false);
+  // const [active, setActive] = useState(false);
 
-  const toggledButtonClass = active ? "btn-class-active" : "btn-class";
+  // const toggledButtonClass = active ? "btn-class-active" : "btn-class";
   // const [buttonStates, setButtonStates] = useState({
   //   activeObject: null,
   //   objects: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }],
@@ -25,18 +25,24 @@ function Button(props) {
   //     return "btn-class inactive";
   //   }
   // };
-
+  // const toggleClass = () => {
+  //   if (props.className === true) {
+  //     return "btn-class active";
+  //   } else {
+  //     return "btn-class inactive";
+  //   }
+  // };
   return (
     <div>
       <ButtonStyle>
         <button
           key={props.key}
-          // className={props.toggleActiveClass()}
-          className={toggledButtonClass}
+          className={props.className()}
+          // className={toggledButtonClass}
           onClick={(prevState) => {
             props.setSelectedTip(props.percentage / 100);
-            setActive((prevState) => !prevState);
-            // props.toggleActiveButton();
+            // setActive((prevState) => !prevState);
+            props.onClick();
           }}
         >
           {props.percentage}%
@@ -73,7 +79,7 @@ const ButtonStyle = styled.div`
     color: white;
   }
 
-  .btn-class-active {
+  .active {
     background-color: hsl(172, 67%, 45%);
     color: hsl(0, 0%, 36%);
     padding-inline: 1.5rem;

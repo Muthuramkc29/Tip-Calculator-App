@@ -9,7 +9,12 @@ function customInputBox(props) {
           type="text"
           className="inputBox"
           placeholder="Custom"
-          onChange={(e) => props.setCustomSelectedTip(e.target.value / 100)}
+          onChange={(e) => {
+            props.onClick();
+            props.setCustomSelectedTip(e.target.value / 100);
+            props.setSelectedTip(0);
+          }}
+          // onClick={props.onClick()}
         />
       </InputBox>
       <span className="ms-1 percent">%</span>
