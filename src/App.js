@@ -57,14 +57,9 @@ function App() {
         )
       );
     } else {
-      setTipAmountPerson(
-        ((bill * customSelectedTip) / numberOfPerson).toFixed(2)
-      );
+      setTipAmountPerson((customSelectedTip / numberOfPerson).toFixed(2));
       setTipAmountTotal(
-        (
-          bill / numberOfPerson +
-          (bill * customSelectedTip) / numberOfPerson
-        ).toFixed(2)
+        (bill / numberOfPerson + customSelectedTip / numberOfPerson).toFixed(2)
       );
     }
     setSubmit((prevState) => !prevState);
